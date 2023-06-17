@@ -11,7 +11,7 @@ const Navbar = () => {
         </button>
       </div>
       <div className="flex items-center ">
-        <button onClick={() => navigate("/")} className="mr-6 font-semibold text-whitet text-lg hover:text-ohover duration-300">
+        <button onClick={() => navigate("/home")} className="mr-6 font-semibold text-whitet text-lg hover:text-ohover duration-300">
           🏠 Home
         </button>
         <button onClick={() => navigate("/mypokemon")} className="text-whitet text-lg font-semibold hover:text-ohover duration-300">

@@ -5,13 +5,15 @@ import Mypokemon from "./Pages/Pokemon";
 import NotFound from "./Pages/NotFound";
 import PokemonDetail from "./Pages/PokemonDetail";
 import { FavoritesProvider } from "./FavoritesContext";
+import Landingpage from "./Pages/Landingpage";
 
 const App = () => {
   return (
     <Router>
       <FavoritesProvider>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landingpage/>} />
+          <Route path="/home" element={<Home />} />
           <Route path="/mypokemon" element={<Mypokemon />} />
           <Route path="/pokemon/:pokemonName" element={<PokemonDetail />} />
           <Route path="*" element={<NotFound />} />
