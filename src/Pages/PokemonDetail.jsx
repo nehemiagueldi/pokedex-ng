@@ -42,6 +42,12 @@ const PokemonDetail = () => {
     setFavorites((prevFavorites) => prevFavorites.filter((pokemon) => pokemon.name !== name));
   };
 
+  const getPokemonImageUrl = (pokemonId) => {
+    // return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`; // DREAM WORLD
+    // return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`; // OFFICIAL ARTWORK
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`; // HOME
+  };
+
   return (
     <div className="container mx-auto p-4">
       <button className="mb-4 bg-gradient-to-tl from-btnviewd to-btnviewh hover:from-backbtna hover:to-backbtnb text-whitet p-2  rounded-lg font-semibold" onClick={() => navigate("/")}>
@@ -52,7 +58,7 @@ const PokemonDetail = () => {
         <h2 className="text-3xl font-bold mb-4 text-center">{name}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="text-center">
-            <img src={pokemonData.sprites.front_default} alt={name} className="mx-auto max-w-full" style={{ width: "200px", height: "200px" }} />
+            <img src={getPokemonImageUrl(pokemonData.id)} alt={name} className="mx-auto max-w-full" style={{ width: "200px", height: "200px" }} />
           </div>
           <div>
             <div className="grid grid-cols-2 justify-items-center gap-4">
