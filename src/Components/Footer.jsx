@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="flex items-center justify-around flex-wrap bg-gradient-to-tl from-paginationp from-10% to-btnviewh to-80% p-6">
       <div className="flex items-center ">
-        <p className="text-whitet text-xl font-bold">
+        <p className="text-whitet text-base md:text-xl font-bold">
           &copy; {currentYear} | Made with ❤️ by{" "}
           <Link to={"https://nehemiagueldi.github.io/"} target="_blank" className="font-bold text-github hover:text-ohover duration-300 tracking-tight">
             Nehemia Gueldi
