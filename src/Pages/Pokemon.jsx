@@ -17,7 +17,7 @@ const Mypokemon = () => {
     <>
       <Navbar />
       <div className="container mx-auto p-4">
-        <h2 className="text-3xl font-bold mb-4 text-center">My Pokemon</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center">My Favorites Pokemon</h2>
         {favorites.length === 0 ? (
           <p className="text-2xl font-semibold">No Pokémon added to favorites.</p>
         ) : (
