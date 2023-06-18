@@ -67,8 +67,8 @@ Open your web browser and visit http://localhost:3000 to access the application.
 
 ## 📚 References
 
-- [**TailwindCSS**](https://tailwindcss.com/)
 - [**React JS**](https://react.dev/)
+- [**TailwindCSS**](https://tailwindcss.com/)
 - [**Pokemon API**](https://pokeapi.co/docs/v2)
 - [**Pokemon Image**](https://github.com/PokeAPI/sprites)
 
