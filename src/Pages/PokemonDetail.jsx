@@ -50,7 +50,7 @@ const PokemonDetail = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <button className="mb-4 bg-gradient-to-tl from-btnviewd to-btnviewh hover:from-backbtna hover:to-backbtnb text-whitet p-2  rounded-lg font-semibold" onClick={() => navigate("/")}>
+      <button className="mb-4 bg-gradient-to-tl from-btnviewd to-btnviewh hover:from-backbtna hover:to-backbtnb text-whitet p-2  rounded-lg font-semibold" onClick={() => navigate("/home")}>
         {" "}
         🏠 Back to Home
       </button>
