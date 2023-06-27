@@ -16,6 +16,7 @@ Pokédex NG is a React-based Pokédex application that leverages the PokeAPI to 
 - Add and remove Pokémon from your favorites collection
 - Responsive design for optimal viewing across different devices
 - Pagination to navigate through a large number of Pokémon
+- Search Bar to search for the desired Pokémon name
 
 
 
