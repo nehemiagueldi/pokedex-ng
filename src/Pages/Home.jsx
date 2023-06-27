@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Tilt from "react-parallax-tilt";
 import Pagination from "../Components/Pagination";
 import Navbar from "./../Components/Navbar";
 import Footer from "./../Components/Footer";
@@ -8,6 +9,7 @@ import Footer from "./../Components/Footer";
 const Home = () => {
   const [pokemonList, setPokemonList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +20,7 @@ const Home = () => {
 
   const getPokemonList = (page) => {
     return axios
-      .get(`https://pokeapi.co/api/v2/pokemon?offset=${(page - 1) * 20}&limit=20`)
+      .get(`https://pokeapi.co/api/v2/pokemon?offset=${(page - 1) * 60}&limit=60`)
       .then((response) => {
         const promises = response.data.results.map(async (pokemon) => {
           const response = await axios.get(pokemon.url);
@@ -62,36 +64,50 @@ const Home = () => {
     setCurrentPage(page);
   };
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filterPokemonList = () => {
+    if (searchTerm === "") {
+      return pokemonList;
+    } else {
+      return pokemonList.filter((pokemon) => pokemon.name.toLowerCase().includes(searchTerm.toLowerCase()));
+    }
+  };
+
   const getPokemonImageUrl = (pokemonId) => {
-    // return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`; // DREAM WORLD
-    // return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonId}.png`; // OFFICIAL ARTWORK
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemonId}.png`; // HOME
   };
 
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center">
-        <h1 className="text-3xl font-bold my-4">Pokemon List</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-11/12">
-          {pokemonList.map((pokemon) => (
-            <div key={pokemon.id} className="rounded-lg shadow-md hover:shadow-2xl transition duration-300 ease-in-out text-center">
-              <img src={getPokemonImageUrl(pokemon.id)} alt={pokemon.name} className="w-full h-auto max-h-48 object-contain rounded-t-lg" />
-              <div className="p-4">
-                <h2 className="text-xl font-bold mb-2">{pokemon.name}</h2>
-                <button
-                  className="shadow-xl bg-gradient-to-tl from-btnview to-paginationnex hover:from-btnviewp hover:to-btnviewd text-whitet font-bold py-2 px-4 rounded-full duration-300"
-                  onClick={() => handlePokemonDetails(pokemon.name)}
-                >
-                  View details
-                </button>
+      <div className="pt-20">
+        <div className="container mx-auto p-4">
+          <h1 className="text-3xl font-bold mb-4 text-center">Pokémon List</h1>
+          <div className="w-full sm:w-11/12 mb-4">
+            <input type="text" placeholder="Search Pokemon..." className="w-full p-2 border-2 border-searchbox rounded-lg focus:outline-none focus:border-btnview transition duration-300" value={searchTerm} onChange={handleSearch} />
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {filterPokemonList().map((pokemon) => (
+              <div className="rounded-lg shadow-md hover:shadow-2xl transition duration-300 ease-in-out text-center">
+                <Tilt key={pokemon.id} scale={1.05} gyroscope={true} glareEnable={true} glareMaxOpacity={0.25} glareColor="#ffffff" glarePosition="bottom">
+                  <img src={getPokemonImageUrl(pokemon.id)} alt={pokemon.name} className="w-full h-auto max-h-48 object-contain rounded-t-lg" />
+                </Tilt>
+                <div className="p-4">
+                  <h2 className="text-xl font-bold mb-2">{pokemon.name}</h2>
+                  <button className="shadow-xl bg-gradient-to-tl from-btnview to-paginationnex hover:from-btnviewp hover:to-btnviewd text-whitet font-bold py-2 px-4 rounded-full duration-300" onClick={() => handlePokemonDetails(pokemon.name)}>
+                    View details
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <Pagination currentPage={currentPage} onPageChange={handlePageChange} />
         </div>
-        <Pagination currentPage={currentPage} onPageChange={handlePageChange} />
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };

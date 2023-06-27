@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FavoritesContext } from "../FavoritesContext";
+import Tilt from "react-parallax-tilt";
 
 const PokemonDetail = () => {
   const { pokemonName } = useParams();
@@ -35,7 +36,7 @@ const PokemonDetail = () => {
 
   const addToFavorites = () => {
     setFavorites((prevFavorites) => [...prevFavorites, pokemonData]);
-    navigate("/mypokemon");
+    navigate("/home");
   };
 
   const removeFromFavorites = () => {
@@ -58,7 +59,9 @@ const PokemonDetail = () => {
         <h2 className="text-3xl font-bold mb-4 text-center">{name}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="text-center">
-            <img src={getPokemonImageUrl(pokemonData.id)} alt={name} className="mx-auto max-w-full" style={{ width: "200px", height: "200px" }} />
+            <Tilt scale={1.05} gyroscope={true} glareEnable={true} glareMaxOpacity={0.15} glareColor="#ffffff" >
+              <img src={getPokemonImageUrl(pokemonData.id)} alt={name} className="mx-auto max-w-full" style={{ width: "200px", height: "200px" }} />
+            </Tilt>
           </div>
           <div>
             <div className="grid grid-cols-2 justify-items-center gap-4">

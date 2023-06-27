@@ -8,6 +8,7 @@ module.exports = {
       secondary: "#0891b2",
       whitet: "#f8fafc",
       ohover: "#d1d5db",
+      searchbox: "#9ca3af",
       paginationp: "#f43f5e",
       paginations: "#f97316",
       paginationpre: "#0ea5e9",
