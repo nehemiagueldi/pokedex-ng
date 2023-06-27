@@ -1,5 +1,5 @@
 
-![My Image](src/Photo/preview.png)
+![My Image](src/Photo/preview2.png)
 
 # Pokédex NG
 
