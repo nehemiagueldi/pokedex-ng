@@ -1,5 +1,5 @@
 
-![My Image](src/Photo/preview.png)
+![My Image](src/Photo/preview2.png)
 
 # Pokédex NG
 
@@ -16,6 +16,7 @@ Pokédex NG is a React-based Pokédex application that leverages the PokeAPI to 
 - Add and remove Pokémon from your favorites collection
 - Responsive design for optimal viewing across different devices
 - Pagination to navigate through a large number of Pokémon
+- Search Bar to search for the desired Pokémon name
 
 
 
@@ -39,7 +40,7 @@ After download file, to run the Pokédex NG application locally, follow these st
 ```
 
 ```bash
-  npm install -D tailwindcss postcss autoprefixer react-router-dom axios
+  npm install -D tailwindcss postcss autoprefixer react-router-dom axios react-parallax-tilt
 ```
 
 ```bash
