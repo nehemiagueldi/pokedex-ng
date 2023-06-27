@@ -40,7 +40,7 @@ After download file, to run the Pokédex NG application locally, follow these st
 ```
 
 ```bash
-  npm install -D tailwindcss postcss autoprefixer react-router-dom axios
+  npm install -D tailwindcss postcss autoprefixer react-router-dom axios react-parallax-tilt
 ```
 
 ```bash
