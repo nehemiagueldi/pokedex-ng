@@ -83,7 +83,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-20">
+      <div className="pt-24 md:pt-20">
         <div className="container mx-auto p-4">
           <h1 className="text-3xl font-bold mb-4 text-center">Pokémon List</h1>
           <div className="w-full sm:w-11/12 mb-4">

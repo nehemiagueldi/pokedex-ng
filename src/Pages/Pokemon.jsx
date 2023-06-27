@@ -30,7 +30,7 @@ const Mypokemon = () => {
   return (
     <>
       <Navbar />
-      <div className="pt-20">
+      <div className="pt-24 md:pt-20">
         <div className="container mx-auto p-4">
           <h2 className="text-3xl font-bold mb-4 text-center">My Favorites Pokémon</h2>
           <div className="w-full mb-4">
